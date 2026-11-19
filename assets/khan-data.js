@@ -219,9 +219,12 @@
     return out;
   }
   const totalEnemies = (stage) => waves(stage).reduce((a, g) => a + g.reduce((x, [, c]) => x + c, 0), 0);
-  const hpMul = (stage, w) => 1 + (stage - 1) * 0.12 + (w - 1) * 0.05;
+  // 1-кезең: аз алтын, аз табыс, жау сәл мықтырақ — ойлап орналастыру керек, бірақ өтуге болады
+  const S1 = { gold: 180, eco: 0.6, hp: 1.3 };
+  const hpMul = (stage, w) => (1 + (stage - 1) * 0.12 + (w - 1) * 0.05) * (stage === 1 ? S1.hp : 1);
+  const ecoMul = (stage) => (stage === 1 ? S1.eco : 1); // толқын табысы мен олжаға көбейткіш
   const travelT = (stage) => 30 - (stage - 1) * 1.1; // жау жылдамдайды
-  const startGold = (stage, g) => Math.round(240 + stage * 13 + g); // баға өседі (costMul), сондықтан ресурс іс жүзінде азаяды
+  const startGold = (stage, g) => Math.round(stage === 1 ? S1.gold + (g - 50) : 240 + stage * 13 + g); // баға өседі (costMul), сондықтан ресурс іс жүзінде азаяды
   const costMul = (stage) => 1 + (stage - 1) * 0.04;
   const qTime = (stage) => Math.max(20, 45 - (stage - 1) * 2.8); // уақыт азаяды
   const evMul = (stage) => 1 + (stage - 1) * 0.06; // кеңестегі шығын өседі
@@ -242,5 +245,5 @@
     BALKHASH: [[73.6,46.4],[75.5,46.6],[77.5,46.9],[79.0,46.8],[79.1,46.4],[77.5,46.35],[75.5,45.95],[73.8,45.85]],
   };
 
-  root.KHAN_DATA = { GEO, BARS, CRISIS, KHANS, TOWERS, UPG_MUL, CITY_COST, CITY_INCOME, ENEMIES, STAGES, WAVES_BY_STAGE, waves, totalEnemies, hpMul, travelT, startGold, costMul, qTime, evMul, ART };
+  root.KHAN_DATA = { GEO, BARS, CRISIS, KHANS, TOWERS, UPG_MUL, CITY_COST, CITY_INCOME, ENEMIES, STAGES, WAVES_BY_STAGE, waves, totalEnemies, hpMul, ecoMul, S1, travelT, startGold, costMul, qTime, evMul, ART };
 })(typeof window !== 'undefined' ? window : globalThis);

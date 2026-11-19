@@ -114,7 +114,7 @@
     };
     B.income = function () {
       const city = cities.reduce((a, c) => a + c.lvl * D.CITY_INCOME, 0) * (kid === 2 ? 1.3 : 1);
-      return Math.round(22 + B.bars.g * 0.35 + city);
+      return Math.round((22 + B.bars.g * 0.35 + city) * D.ecoMul(B.stage));
     };
 
     /* ---- дипломатия: елші жіберу ---- */
@@ -174,7 +174,7 @@
       e.hp -= n; e.hit = 0.12;
       if (e.hp <= 0) {
         B.kills++;
-        B.gold += Math.round(e.gold * (0.8 + B.bars.h / 250));
+        B.gold += Math.round(e.gold * (0.8 + B.bars.h / 250) * D.ecoMul(B.stage));
         B.fx.push({ k: 'pop', x: e.x, y: e.y, t: 0.35, c: e.type });
       }
     }
