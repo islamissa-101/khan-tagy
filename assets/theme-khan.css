@@ -1,0 +1,57 @@
+/* «Хан тағы» GAME HUB тақырыбы: түнгі дала, қола мен алтын, қошқар мүйіз өрнегі.
+   base.css пен hub.css-тен кейін жүктеледі және олардың түстерін ауыстырады. */
+:root{--dark:#120F0B;--dark2:#1F1A13;--line:#3E3426;--light:#F5F5DC;--gold:#D4AF37;--blue:#D9B45A;--red:#8B0000;--muted:#CDBF9E;--muted2:#998C70;--bronze:#B07D3A;
+ --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M2 12 C2 2 12 2 12 7 C12 10 8 10 8 7 M38 12 C38 2 28 2 28 7 C28 10 32 10 32 7 M12 7 L28 7' fill='none' stroke='%23D4AF37' stroke-width='1.6'/%3E%3C/svg%3E")}
+body{background:
+ radial-gradient(900px 500px at 85% -10%,rgba(212,175,55,.16),transparent),
+ radial-gradient(800px 500px at -10% 110%,rgba(139,0,0,.18),transparent),
+ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='.05' stroke-width='1.4'%3E%3Cpath d='M60 20 C40 20 40 45 55 45 C62 45 62 36 56 36 M60 20 C80 20 80 45 65 45 C58 45 58 36 64 36 M60 100 C40 100 40 75 55 75 C62 75 62 84 56 84 M60 100 C80 100 80 75 65 75 C58 75 58 84 64 84'/%3E%3C/g%3E%3C/svg%3E"),
+ linear-gradient(180deg,#0E0C09,#17120C 60%,#120F0B)}
+h1,h2,.disp,.brand,.game .gt{font-style:normal;letter-spacing:.5px}
+a{color:var(--blue)}
+
+/* батырмалар: алтын градиент, жұмсақ бұрыш */
+.btn{background:linear-gradient(180deg,#E9C55A,#C39A2C);color:#1A140A;border:1px solid #F3D77F;border-radius:12px;box-shadow:0 0 16px rgba(212,175,55,.18)}
+.btn.ghost{background:transparent;color:var(--light);border:2px solid var(--bronze);box-shadow:none}
+.btn.blue{background:linear-gradient(180deg,#B07D3A,#8A5E26);color:var(--light);border-color:#C9944F;box-shadow:none}
+.btn.danger{background:#8B0000;border-color:#B22A2A;color:var(--light);box-shadow:none}
+.btn.google{background:#F1E3C2;color:#2B1D0E;border-color:#9C7A42;align-self:center}
+.btn.google .g{color:#8B0000}
+
+/* кіру беті: пергамент жиегі, шаңырақ эмблемасы */
+.login-card{position:relative;align-items:center;text-align:center;background:linear-gradient(180deg,rgba(31,26,19,.96),rgba(18,15,11,.96));border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(212,175,55,.08);padding:48px 36px}
+.login-card::before,.login-card::after,.top::after{content:"";position:absolute;left:18px;right:18px;height:14px;opacity:.75;background:var(--orn) repeat-x;background-size:40px 14px}
+.login-card::before{top:10px}.login-card::after{bottom:10px;transform:scaleY(-1)}
+.emblem{width:92px;height:92px;margin:0 auto -4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23D4AF37' stroke-width='6'/%3E%3Cpath d='M94.0 50.0 L99.0 50.0 M90.7 66.8 L95.3 68.8 M81.1 81.1 L84.6 84.6 M66.8 90.7 L68.8 95.3 M50.0 94.0 L50.0 99.0 M33.2 90.7 L31.2 95.3 M18.9 81.1 L15.4 84.6 M9.3 66.8 L4.7 68.8 M6.0 50.0 L1.0 50.0 M9.3 33.2 L4.7 31.2 M18.9 18.9 L15.4 15.4 M33.2 9.3 L31.2 4.7 M50.0 6.0 L50.0 1.0 M66.8 9.3 L68.8 4.7 M81.1 18.9 L84.6 15.4 M90.7 33.2 L95.3 31.2 ' stroke='%23B07D3A' stroke-width='3'/%3E%3Cg stroke='%23D4AF37' stroke-width='3.5'%3E%3Cpath d='M40 11.3 V88.7 M50 10 V90 M60 11.3 V88.7 M11.3 40 H88.7 M10 50 H90 M11.3 60 H88.7'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23D4AF37' stroke-width='6'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 14px rgba(212,175,55,.45))}
+.login-title{text-shadow:0 0 24px rgba(212,175,55,.25)}
+.login-card .sub{max-width:440px}
+
+/* жоғарғы панель */
+.top{background:rgba(18,15,11,.94);border-bottom:1px solid var(--line)}
+.top::after{top:auto;bottom:-8px;left:0;right:0;height:10px;opacity:.45;background-size:30px 10px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand::before{content:"";width:30px;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23D4AF37' stroke-width='6'/%3E%3Cpath d='M94.0 50.0 L99.0 50.0 M90.7 66.8 L95.3 68.8 M81.1 81.1 L84.6 84.6 M66.8 90.7 L68.8 95.3 M50.0 94.0 L50.0 99.0 M33.2 90.7 L31.2 95.3 M18.9 81.1 L15.4 84.6 M9.3 66.8 L4.7 68.8 M6.0 50.0 L1.0 50.0 M9.3 33.2 L4.7 31.2 M18.9 18.9 L15.4 15.4 M33.2 9.3 L31.2 4.7 M50.0 6.0 L50.0 1.0 M66.8 9.3 L68.8 4.7 M81.1 18.9 L84.6 15.4 M90.7 33.2 L95.3 31.2 ' stroke='%23B07D3A' stroke-width='3'/%3E%3Cg stroke='%23D4AF37' stroke-width='3.5'%3E%3Cpath d='M40 11.3 V88.7 M50 10 V90 M60 11.3 V88.7 M11.3 40 H88.7 M10 50 H90 M11.3 60 H88.7'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23D4AF37' stroke-width='6'/%3E%3C/svg%3E") center/contain no-repeat}
+nav a{border-radius:0;border-bottom:2px solid transparent;padding:8px 10px}
+nav a.on{background:transparent;color:var(--gold);border-bottom-color:var(--gold)}
+nav a:hover:not(.on){background:transparent;color:var(--light);border-bottom-color:var(--line)}
+
+/* бөлім тақырыптары: астында өрнек */
+.view h2{position:relative;padding-bottom:16px}
+.view h2::after{content:"";position:absolute;left:0;bottom:0;width:200px;height:12px;background:var(--orn) repeat-x;background-size:34px 12px;opacity:.8}
+
+/* ойын карточкалары */
+.game{background:linear-gradient(180deg,#221C14,#1A150F);border:1px solid var(--line);border-radius:14px}
+.game.main{border:2px solid var(--gold);background:linear-gradient(135deg,#3A2A14,#1F1A13 70%);box-shadow:0 0 30px rgba(212,175,55,.12)}
+.game .gg{color:var(--bronze)}
+.game.main .gg{color:var(--gold)}
+.demo-badge{background:#5A2A1A;color:var(--muted);border:1px solid #8B4A2A}
+
+/* кестелер мен карточкалар */
+table.board th{background:linear-gradient(180deg,#C9A35A,#A97F33);color:#1A140A}
+table.board tr:nth-child(odd) td{background:rgba(255,255,255,.015)}
+table.board tr.me td{background:rgba(212,175,55,.16)}
+.st,.prof-card,.admin-bar,code,.tab{background:var(--dark2);border:1px solid var(--line)}
+.st b{color:var(--gold)}
+.modal-card{background:var(--dark2);border-color:#8B0000}
+#toast div{background:rgba(31,26,19,.97)}
+input.txt{background:#17130E;border-color:var(--line)}
